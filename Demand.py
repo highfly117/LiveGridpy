@@ -10,6 +10,7 @@ import time as time
 from datetime import date, datetime, timedelta
 
 
+
 def _getDemand_():
     cnx = mysql.connect(user='root', password='Thereoncewasagirl0', database='powergrid')
 
@@ -29,7 +30,7 @@ def _getDemand_():
     m = 0
 
 
-    #Clean_table = ("TRUNCATE TABLE fueltypedemand")
+    #Clean_table = ("TRUNCATE TABLE powergrid")
     #cursor.execute(Clean_table)
     #cnx.commit()
 
@@ -41,13 +42,14 @@ def _getDemand_():
 
         idfueltype = cursor.lastrowid
 
-        add_fueltype = ("INSERT INTO fueltypedemand"
-                        "(DemandID, Time_Date, CCGT, OIL, COAL, NUCLEAR, WIND, PS, NPSHYDl, OCGT, OTHER, INTFR, INTIRL, INTNED , INTEW, BIOMASS)"
+        add_fueltype = ("INSERT INTO powergrid"
+                        "(DemandID, Time_Date, CCGT, OIL, COAL, NUCLEAR, WIND, PS, NPSHYDL, OCGT, OTHER, INTFR, INTIRL, INTNED , INTEW, BIOMASS)"
                         "VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)")
 
 
         fueltype_data = (idfueltype, int(arr[m][0]), int(arr[m][1]), int(arr[m][2]), int(arr[m][3]), int(arr[m][4]), int(arr[m][5]), int(arr[m][6]), int(arr[m][7]), int(arr[m][8]), int(arr[m][9]), int(arr[m][10]), int(arr[m][11]), int(arr[m][12]), int(arr[m][13]), int(arr[m][14]))
         m = m + 1
+
 
         cursor.execute(add_fueltype, fueltype_data)
 
@@ -57,8 +59,8 @@ def _getDemand_():
     cnx.close()
 
 
-
 _getDemand_()
+
 
 # starttime = time.time()
 # while True:
