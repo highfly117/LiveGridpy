@@ -11,7 +11,8 @@ from datetime import date, datetime, timedelta
 
 
 def _getDemand_():
-    cnx = mysql.connect(user='root', password='girl', database='powergrid')
+    #cnx = mysql.connect(user='root', password='girl', database='powergrid')
+    cnx = mysql.connect(user="root", password=, host="servername", port=3306, database="powergirddb", ssl_verify_cert=true)
 
     cursor = cnx.cursor()
 
@@ -61,10 +62,6 @@ def _getDemand_():
 
 print(quit)
 
-starttime = time.time()
-while True:
-    _getDemand_()
-    time.sleep(60.0 - ((time.time() - starttime) % 60))
-
+_getDemand_
 
 
