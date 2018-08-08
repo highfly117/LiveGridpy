@@ -11,7 +11,7 @@ from datetime import date, datetime, timedelta
 
 
 def _getDemand_():
-    cnx = mysql.connect(user='root', password='Thereoncewasagirl0', database='powergrid')
+    cnx = mysql.connect(user='root', password='girl', database='powergrid')
 
     cursor = cnx.cursor()
 
